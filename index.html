@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GLAN.SENDAI - 仙台駅徒歩13分、新築1LDKアパート。敷金・礼金・仲介手数料0円+フリーレント1ヶ月。グラファイトの外壁とウッド調の内装が映える、Urban Wood Residence。">
+<meta name="keywords" content="GLAN仙台,グラン仙台,仙台駅,新築,1LDK,賃貸,アパート,仙台市青葉区小田原,フリーレント,仲介手数料無料">
+
+<!-- Open Graph -->
+<meta property="og:title" content="GLAN.SENDAI 〜Urban Wood Residence〜">
+<meta property="og:description" content="仙台駅徒歩13分。新築1LDK、敷金・礼金・仲介手数料0円+フリーレント1ヶ月。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./images/exterior.jpg">
+
+<title>GLAN.SENDAI 〜Urban Wood Residence〜 | 仙台駅徒歩13分の新築1LDK</title>
+
+<!-- Schema.org structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ApartmentComplex",
+  "name": "GLAN.SENDAI",
+  "alternateName": "グラン仙台",
+  "description": "仙台駅徒歩13分の新築1LDKアパート",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "宮城県",
+    "addressLocality": "仙台市青葉区",
+    "streetAddress": "小田原4丁目"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.267126,
+    "longitude": 140.889009
+  },
+  "numberOfRooms": 3,
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": "インターネット無料"},
+    {"@type": "LocationFeatureSpecification", "name": "宅配ボックス"},
+    {"@type": "LocationFeatureSpecification", "name": "防犯カメラ"},
+    {"@type": "LocationFeatureSpecification", "name": "ペット相談可"}
+  ]
+}
+</script>
+
+<style>
+/* ============================================
+   GLAN.SENDAI Landing Page
+   Theme: Graphite + Wood
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --graphite-900: #1f1f1d;
+  --graphite-800: #2C2C2A;
+  --graphite-700: #444441;
+  --graphite-500: #5F5E5A;
+  --graphite-400: #888780;
+  --graphite-300: #B4B2A9;
+  --graphite-200: #D3D1C7;
+  --wood-bg: #f5f1e8;
+  --paper: #fdfbf7;
+  --wood-700: #854F0B;
+  --wood-500: #BA7517;
+  --wood-200: #FAC775;
+  --wood-100: #FAEEDA;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  color: var(--graphite-800);
+  background: var(--paper);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* Image with placeholder fallback */
+.img-placeholder {
+  position: relative;
+  background: var(--graphite-200);
+  overflow: hidden;
+}
+.img-placeholder::before {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--graphite-500);
+  font-size: 12px;
+  letter-spacing: 1px;
+  z-index: 0;
+}
+.img-placeholder img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header (sticky nav) */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--graphite-800);
+  color: var(--paper);
+  padding: 14px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand-name {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.brand-sub {
+  font-size: 9px;
+  color: var(--graphite-300);
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+.header-cta {
+  font-size: 11px;
+  color: var(--graphite-300);
+}
+@media (max-width: 480px) {
+  .header-cta { display: none; }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: min(70vh, 520px);
+  overflow: hidden;
+}
+.hero .img-placeholder { width: 100%; height: 100%; }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(44,44,42,0.15) 0%, rgba(44,44,42,0.75) 100%);
+  z-index: 2;
+}
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 36px 24px;
+  color: var(--paper);
+  z-index: 3;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--wood-700);
+  color: var(--wood-100);
+  font-size: 10px;
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+.hero-title {
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 500;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+.hero-subtitle {
+  font-size: 14px;
+  color: var(--graphite-200);
+  letter-spacing: 0.5px;
+}
+
+/* Special offer panel */
+.offer {
+  background: var(--graphite-800);
+  color: var(--paper);
+  padding: 28px 22px;
+}
+.offer-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.offer-eyebrow {
+  font-size: 11px;
+  color: var(--graphite-300);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.offer-headline {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.offer-tagline {
+  font-size: 13px;
+  color: var(--wood-200);
+}
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.offer-item {
+  background: var(--graphite-700);
+  padding: 14px 4px;
+  border-radius: 4px;
+  text-align: center;
+}
+.offer-label {
+  font-size: 10px;
+  color: var(--graphite-300);
+  margin-bottom: 4px;
+}
+.offer-value {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--wood-200);
+}
+.offer-value-sub {
+  font-size: 11px;
+  margin-left: 1px;
+}
+
+/* Section base */
+.section {
+  padding: 36px 22px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.section-tinted {
+  background: var(--wood-bg);
+  border-top: 1px solid var(--graphite-200);
+  max-width: none;
+}
+.section-tinted-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 22px;
+}
+.section-eyebrow {
+  font-size: 10px;
+  color: var(--graphite-400);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.section-subtitle {
+  font-size: 12px;
+  color: var(--graphite-400);
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+/* Building stack (all 9 rooms grouped by floor) */
+.building {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.floor-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.floor-label {
+  font-size: 11px;
+  color: var(--graphite-500);
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding-left: 4px;
+}
+.floor-label-status {
+  margin-left: 10px;
+  color: var(--graphite-400);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.availability-summary {
+  background: var(--paper);
+  border: 1px solid var(--wood-500);
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.availability-summary-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--wood-700);
+  flex-shrink: 0;
+}
+.availability-summary-text {
+  color: var(--graphite-700);
+}
+.availability-summary-text strong {
+  color: var(--wood-700);
+  font-weight: 500;
+}
+.section-body {
+  margin-top: 18px;
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.gallery .img-placeholder {
+  aspect-ratio: 1/1;
+}
+.gallery-note {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--graphite-400);
+}
+@media (max-width: 480px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  background: var(--paper);
+  padding: 12px 14px;
+  border-radius: 4px;
+}
+.feature-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wood-700);
+}
+.feature-icon svg { width: 100%; height: 100%; }
+@media (max-width: 480px) {
+  .features { grid-template-columns: 1fr; }
+}
+
+/* Rooms */
+.room {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--graphite-200);
+  border-radius: 4px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.room:hover {
+  border-color: var(--wood-700);
+  transform: translateY(-2px);
+}
+.room-floor {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.room-floor .img-placeholder {
+  width: 100%;
+  height: 100%;
+}
+.room-floor img { object-fit: contain; }
+.room-info {
+  min-width: 0;
+}
+.room-meta {
+  font-size: 11px;
+  color: var(--graphite-400);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.room-price {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--graphite-800);
+}
+.room-price-sub {
+  font-size: 11px;
+  color: var(--graphite-400);
+  font-weight: 400;
+  margin-left: 4px;
+}
+.room-spec {
+  font-size: 12px;
+  color: var(--graphite-500);
+}
+.room-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+.room-feature-chip {
+  background: var(--wood-100);
+  color: var(--wood-700);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.room-feature-chip.is-highlight {
+  background: var(--wood-700);
+  color: var(--wood-100);
+}
+.room-cta {
+  background: var(--graphite-800);
+  color: var(--paper);
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Taken room (申込済) state - compact */
+.room.is-taken {
+  position: relative;
+  background: #f0ede5;
+  border-color: var(--graphite-200);
+  cursor: default;
+  opacity: 0.85;
+  grid-template-columns: 50px 1fr auto;
+  gap: 12px;
+  padding: 8px 14px;
+}
+.room.is-taken:hover {
+  border-color: var(--graphite-200);
+  transform: none;
+}
+.room.is-taken .room-floor {
+  width: 50px;
+  height: 50px;
+  filter: grayscale(0.6);
+  opacity: 0.5;
+}
+.room.is-taken .room-info {
+  filter: grayscale(0.6);
+  opacity: 0.6;
+}
+.room-status-badge {
+  background: var(--graphite-700);
+  color: var(--paper);
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+.room-spec-hidden {
+  font-size: 12px;
+  color: var(--graphite-400);
+  font-style: normal;
+}
+.room.is-taken .room-meta {
+  margin-bottom: 0;
+  font-size: 11px;
+}
+.room.is-taken .room-spec-hidden {
+  display: none;
+}
+@media (max-width: 540px) {
+  .room.is-taken {
+    grid-template-columns: 40px 1fr auto;
+    padding: 8px 12px;
+    gap: 10px;
+  }
+  .room.is-taken .room-floor { width: 40px; height: 40px; }
+  .room.is-taken .room-cta {
+    grid-column: auto;
+    padding: 4px 10px;
+  }
+}
+@media (max-width: 540px) {
+  .room {
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+  .room-floor { width: 70px; height: 70px; }
+  .room-cta {
+    grid-column: 1 / -1;
+    justify-content: center;
+    padding: 10px;
+  }
+}
+
+/* Map */
+.map-wrapper {
+  background: var(--graphite-200);
+  height: 280px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Surroundings */
+.surroundings {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.surrounding {
+  background: var(--paper);
+  padding: 12px 14px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.surrounding-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.surrounding-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--wood-700);
+  flex-shrink: 0;
+}
+.surrounding-distance {
+  font-weight: 500;
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  .surroundings { grid-template-columns: 1fr; }
+}
+
+/* Contact */
+.contact {
+  background: var(--graphite-800);
+  color: var(--paper);
+  padding: 40px 22px;
+  text-align: center;
+}
+.contact-eyebrow {
+  font-size: 10px;
+  color: var(--graphite-300);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.contact-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.contact-tagline {
+  font-size: 13px;
+  color: var(--graphite-300);
+  margin-bottom: 22px;
+}
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+.contact-btn-primary {
+  background: var(--wood-700);
+  color: var(--wood-100);
+  padding: 18px;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.contact-btn-secondary {
+  color: var(--paper);
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  border: 1px solid var(--graphite-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Footer */
+.footer {
+  padding: 18px 22px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--graphite-400);
+  background: var(--graphite-900);
+  letter-spacing: 1px;
+}
+
+/* Icons (inline SVG, no external deps) */
+.icon-svg { width: 1em; height: 1em; vertical-align: -0.125em; fill: currentColor; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div>
+    <div class="brand-name">GLAN.SENDAI</div>
+    <div class="brand-sub">URBAN WOOD RESIDENCE</div>
+  </div>
+  <div class="header-cta">仙台駅徒歩13分 / 1LDK</div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="img-placeholder" data-label="exterior.jpg">
+    <img src="./images/exterior.jpg" alt="GLAN.SENDAI 外観" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">2026.02 NEW BUILD / 残り3部屋</div>
+    <h1 class="hero-title">仙台駅まで、歩いて13分。</h1>
+    <p class="hero-subtitle">グラファイトの外壁とウッドの内装が出迎える、新生活</p>
+  </div>
+</section>
+
+<!-- Special offer -->
+<section class="offer">
+  <div class="offer-header">
+    <div class="offer-eyebrow">SPECIAL OFFER</div>
+    <div class="offer-headline">敷金・礼金・仲介手数料 すべて0円</div>
+    <div class="offer-tagline">+ 家賃1ヶ月分フリーレント</div>
+  </div>
+  <div class="offer-grid">
+    <div class="offer-item">
+      <div class="offer-label">敷金</div>
+      <div class="offer-value">0</div>
+    </div>
+    <div class="offer-item">
+      <div class="offer-label">礼金</div>
+      <div class="offer-value">0</div>
+    </div>
+    <div class="offer-item">
+      <div class="offer-label">仲介料</div>
+      <div class="offer-value">0</div>
+    </div>
+    <div class="offer-item">
+      <div class="offer-label">フリーレント</div>
+      <div class="offer-value">1<span class="offer-value-sub">ヶ月</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="section">
+  <div class="section-eyebrow">GALLERY</div>
+  <h2 class="section-title">室内・共用部</h2>
+  <div class="section-body">
+    <div class="gallery">
+      <div class="img-placeholder" data-label="room-01.jpg">
+        <img src="./images/room-01.jpg" alt="居室" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="room-02.jpg">
+        <img src="./images/room-02.jpg" alt="居室" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="kitchen.jpg">
+        <img src="./images/kitchen.jpg" alt="キッチン" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="bathroom.jpg">
+        <img src="./images/bathroom.jpg" alt="バスルーム" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="washroom.jpg">
+        <img src="./images/washroom.jpg" alt="洗面" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="entrance.jpg">
+        <img src="./images/entrance.jpg" alt="エントランス" onerror="this.style.display='none'">
+      </div>
+    </div>
+    <p class="gallery-note">他の写真はエイブル物件ページにて</p>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section-tinted">
+  <div class="section-tinted-inner">
+    <div class="section-eyebrow">FEATURES</div>
+    <h2 class="section-title">設備・特徴</h2>
+    <div class="section-body">
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 21l3.6-3.6c-1-.5-2.2-.8-3.6-.8s-2.6.3-3.6.8L12 21zm5.5-5.5c-1.4-1-3.4-1.6-5.5-1.6s-4.1.6-5.5 1.6L5 14c1.8-1.4 4.4-2 7-2s5.2.6 7 2l-1.5 1.5zm3-3C18 10.4 15.1 9.5 12 9.5s-6 .9-8.5 3l-1.5-1.5C5 8.4 8.4 7 12 7s7 1.4 10 4l-1.5 1.5z"/></svg></div>
+          <span>インターネット無料</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 16V7.978C21 6.882 20.105 6 19 6h-7L9.5 4H5c-1.105 0-2 .895-2 2v10c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2zM5 16V8h14v8H5z"/></svg></div>
+          <span>宅配ボックス</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 4 5 9 7 13 2-4 7-9 7-13 0-4-3-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg></div>
+          <span>IH 2口・システムキッチン</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 2v6h6V2H9zm-7 8v8c0 1.1.9 2 2 2h2v2h2v-2h8v2h2v-2h2c1.1 0 2-.9 2-2v-8H2zm18 8H4v-6h16v6z"/></svg></div>
+          <span>独立洗面・バストイレ別</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 14c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.59 1.39-4.84 3.46-6.06L8 9l1.45-2.5L11 4l1.55 2.5L14 9l-.46-1.06C15.61 9.16 17 11.41 17 14h2z"/></svg></div>
+          <span>追い焚き・浴室乾燥機</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+          <span>防犯カメラ・TVインターホン</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><circle cx="4.5" cy="9.5" r="2.5"/><circle cx="9" cy="5.5" r="2.5"/><circle cx="15" cy="5.5" r="2.5"/><circle cx="19.5" cy="9.5" r="2.5"/><path d="M17.34 14.86c-.87-1.02-1.6-1.89-2.48-2.91-.46-.54-1.05-1.08-1.75-1.32-.11-.04-.22-.07-.33-.09-.25-.04-.52-.04-.78-.04s-.53 0-.79.05c-.11.02-.22.05-.33.09-.7.24-1.28.78-1.74 1.32-.87 1.02-1.6 1.89-2.48 2.91-1.31 1.31-2.92 2.76-2.62 4.79.29 1.02 1.02 2.03 2.33 2.32.73.15 3.06-.44 5.54-.44h.18c2.48 0 4.81.58 5.54.44 1.31-.29 2.04-1.31 2.33-2.32.31-2.04-1.3-3.49-2.62-4.8z"/></svg></div>
+          <span>ペット相談可</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+          <span>駐車場・バイク置場</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Available rooms -->
+<section class="section">
+  <div class="section-eyebrow">AVAILABLE ROOMS</div>
+  <h2 class="section-title">空室情報<span class="section-subtitle">全9部屋・1LDK</span></h2>
+  <div class="section-body">
+
+    <div class="building">
+
+      <!-- 3F -->
+      <div class="floor-group">
+        <div class="floor-label">3F<span class="floor-label-status">/ 全室申込済</span></div>
+
+        <div class="room is-taken">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="301">
+              <img src="./images/floor-301.jpg" alt="301号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 301 / 南西向き / 角部屋 / 1LDK 30.03㎡</div>
+          </div>
+          <div class="room-status-badge">申込済</div>
+        </div>
+
+        <div class="room is-taken">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="302">
+              <img src="./images/floor-302.jpg" alt="302号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 302 / 南向き / 角部屋 / 1LDK 30.00㎡</div>
+          </div>
+          <div class="room-status-badge">申込済</div>
+        </div>
+
+        <div class="room is-taken">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="303">
+              <img src="./images/floor-303.jpg" alt="303号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 303 / 南向き / 角部屋 / 1LDK 33.02㎡</div>
+          </div>
+          <div class="room-status-badge">申込済</div>
+        </div>
+      </div>
+
+      <!-- 2F -->
+      <div class="floor-group">
+        <div class="floor-label">2F<span class="floor-label-status">/ 全室申込済</span></div>
+
+        <div class="room is-taken">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="201">
+              <img src="./images/floor-201.jpg" alt="201号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 201 / 南西向き / 角部屋 / 1LDK 30.03㎡</div>
+          </div>
+          <div class="room-status-badge">申込済</div>
+        </div>
+
+        <div class="room is-taken">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="202">
+              <img src="./images/floor-202.jpg" alt="202号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 202 / 南向き / 角部屋 / 1LDK 30.00㎡</div>
+          </div>
+          <div class="room-status-badge">申込済</div>
+        </div>
+
+        <div class="room is-taken">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="203">
+              <img src="./images/floor-203.jpg" alt="203号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 203 / 南向き / 角部屋 / 1LDK 33.02㎡</div>
+          </div>
+          <div class="room-status-badge">申込済</div>
+        </div>
+      </div>
+
+      <!-- 1F -->
+      <div class="floor-group">
+        <div class="floor-label">1F<span class="floor-label-status">/ 残り3部屋・募集中</span></div>
+
+        <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635001" target="_blank" rel="noopener">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="floor-101">
+              <img src="./images/floor-101.jpg" alt="101号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 101 / 南西向き</div>
+            <div class="room-price">¥70,000<span class="room-price-sub">+ 管理費 ¥3,000</span></div>
+            <div class="room-spec">1LDK / 30.03㎡</div>
+            <div class="room-features">
+              <span class="room-feature-chip">角部屋</span>
+              <span class="room-feature-chip">2面採光</span>
+              <span class="room-feature-chip is-highlight">シューズインクローゼット</span>
+            </div>
+          </div>
+          <div class="room-cta">DETAIL <svg class="icon-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div>
+        </a>
+
+        <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635002" target="_blank" rel="noopener">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="floor-102">
+              <img src="./images/floor-102.jpg" alt="102号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 102 / 南向き</div>
+            <div class="room-price">¥71,000<span class="room-price-sub">+ 管理費 ¥3,000</span></div>
+            <div class="room-spec">1LDK / 30.00㎡</div>
+            <div class="room-features">
+              <span class="room-feature-chip">角部屋</span>
+              <span class="room-feature-chip is-highlight">2面採光</span>
+            </div>
+          </div>
+          <div class="room-cta">DETAIL <svg class="icon-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div>
+        </a>
+
+        <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635003" target="_blank" rel="noopener">
+          <div class="room-floor">
+            <div class="img-placeholder" data-label="floor-103">
+              <img src="./images/floor-103.jpg" alt="103号室間取り" onerror="this.style.display='none'">
+            </div>
+          </div>
+          <div class="room-info">
+            <div class="room-meta">ROOM 103 / 南向き</div>
+            <div class="room-price">¥75,000<span class="room-price-sub">+ 管理費 ¥3,000</span></div>
+            <div class="room-spec">1LDK / 33.02㎡</div>
+            <div class="room-features">
+              <span class="room-feature-chip">角部屋</span>
+              <span class="room-feature-chip is-highlight">最広33㎡</span>
+              <span class="room-feature-chip is-highlight">対面キッチン</span>
+            </div>
+          </div>
+          <div class="room-cta">DETAIL <svg class="icon-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="section-tinted">
+  <div class="section-tinted-inner">
+    <div class="section-eyebrow">LOCATION</div>
+    <h2 class="section-title">アクセス・周辺環境</h2>
+    <div class="section-body">
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps?q=38.267126,140.889009&hl=ja&z=16&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="GLAN.SENDAI 周辺地図"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="surroundings">
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 16.5C4 17.88 5.12 19 6.5 19L5 20.5v.5h2.23l2-2H15l2 2h2v-.5L17.5 19c1.38 0 2.5-1.12 2.5-2.5V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/></svg>
+            JR仙台駅
+          </span>
+          <span class="surrounding-distance">徒歩13分</span>
+        </div>
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 16.5C4 17.88 5.12 19 6.5 19L5 20.5v.5h2.23l2-2H15l2 2h2v-.5L17.5 19c1.38 0 2.5-1.12 2.5-2.5V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5z"/></svg>
+            地下鉄広瀬通駅
+          </span>
+          <span class="surrounding-distance">徒歩19分</span>
+        </div>
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7h-3V6c0-2.2-1.8-4-4-4S8 3.8 8 6v1H5c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9-1c0-1.1.9-2 2-2s2 .9 2 2v1h-4V6z"/></svg>
+            ローソン
+          </span>
+          <span class="surrounding-distance">226m</span>
+        </div>
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7h-3V6c0-2.2-1.8-4-4-4S8 3.8 8 6v1H5c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9-1c0-1.1.9-2 2-2s2 .9 2 2v1h-4V6z"/></svg>
+            ファミリーマート
+          </span>
+          <span class="surrounding-distance">344m</span>
+        </div>
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            ウジエスーパー
+          </span>
+          <span class="surrounding-distance">446m</span>
+        </div>
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            西友
+          </span>
+          <span class="surrounding-distance">630m</span>
+        </div>
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.22 11.29l7.07-7.07c1.95-1.95 5.12-1.95 7.07 0s1.95 5.12 0 7.07l-7.07 7.07c-1.95 1.95-5.12 1.95-7.07 0s-1.95-5.12 0-7.07zm1.41 1.41c-1.17 1.17-1.17 3.07 0 4.24s3.07 1.17 4.24 0l7.07-7.07c1.17-1.17 1.17-3.07 0-4.24s-3.07-1.17-4.24 0L5.63 12.7z"/></svg>
+            セイムス(薬局)
+          </span>
+          <span class="surrounding-distance">747m</span>
+        </div>
+        <div class="surrounding">
+          <span class="surrounding-label">
+            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.20-1.10-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>
+            朱華飯店
+          </span>
+          <span class="surrounding-distance">245m</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="contact-eyebrow">CONTACT</div>
+  <h2 class="contact-title">お問い合わせ</h2>
+  <p class="contact-tagline">エイブル仙台駅前店までお気軽にどうぞ</p>
+  <div class="contact-buttons">
+    <a class="contact-btn-primary" href="tel:0222213663">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      022-221-3663
+    </a>
+    <a class="contact-btn-secondary" href="https://www.able.co.jp/archive/miyagi/bld-5471188/" target="_blank" rel="noopener">
+      エイブル物件ページを開く
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  GLAN.SENDAI © 株式会社グッドリダンス
+</footer>
+
+</body>
+</html>
