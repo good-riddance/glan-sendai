@@ -143,21 +143,113 @@ a { color: inherit; text-decoration: none; }
   height: min(70vh, 520px);
   overflow: hidden;
 }
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+}
+.hero-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hero-slide .img-placeholder {
+  width: 100%;
+  height: 100%;
+}
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(31, 31, 29, 0.4);
+  color: var(--paper);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+.hero-nav:hover {
+  background: rgba(31, 31, 29, 0.7);
+}
+.hero-nav.prev { left: 12px; }
+.hero-nav.next { right: 12px; }
+.hero-nav svg {
+  width: 22px;
+  height: 22px;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 4;
+}
+.hero-dot {
+  width: 26px;
+  height: 3px;
+  background: rgba(253, 251, 247, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+.hero-dot.is-active {
+  background: var(--paper);
+}
+
+@media (max-width: 480px) {
+  .hero-nav { width: 36px; height: 36px; }
+  .hero-nav.prev { left: 8px; }
+  .hero-nav.next { right: 8px; }
+  .hero-dot { width: 20px; }
+}
+
 .hero .img-placeholder { width: 100%; height: 100%; }
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(44,44,42,0.15) 0%, rgba(44,44,42,0.75) 100%);
   z-index: 2;
+  pointer-events: none;
 }
 .hero-content {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 36px 24px;
+  padding: 36px 24px 50px;
   color: var(--paper);
   z-index: 3;
+  pointer-events: none;
 }
 .hero-badge {
   display: inline-block;
@@ -660,9 +752,51 @@ a { color: inherit; text-decoration: none; }
 
 <!-- Hero -->
 <section class="hero">
-  <div class="img-placeholder" data-label="exterior.jpg">
-    <img src="./images/exterior.jpg" alt="GLAN.SENDAI 外観" onerror="this.style.display='none'">
+  <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-slides">
+      <div class="hero-slide is-active">
+        <div class="img-placeholder" data-label="exterior.jpg">
+          <img src="./images/exterior.jpg" alt="GLAN.SENDAI 外観" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="img-placeholder" data-label="hero-living.jpg">
+          <img src="./images/hero-living.jpg" alt="リビング" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="img-placeholder" data-label="hero-kitchen.jpg">
+          <img src="./images/hero-kitchen.jpg" alt="キッチン" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="img-placeholder" data-label="hero-bathroom.jpg">
+          <img src="./images/hero-bathroom.jpg" alt="バスルーム" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="img-placeholder" data-label="hero-entrance.jpg">
+          <img src="./images/hero-entrance.jpg" alt="エントランス" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+
+    <button class="hero-nav prev" aria-label="前の画像">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="hero-nav next" aria-label="次の画像">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </button>
+
+    <div class="hero-dots">
+      <button class="hero-dot is-active" aria-label="画像1"></button>
+      <button class="hero-dot" aria-label="画像2"></button>
+      <button class="hero-dot" aria-label="画像3"></button>
+      <button class="hero-dot" aria-label="画像4"></button>
+      <button class="hero-dot" aria-label="画像5"></button>
+    </div>
   </div>
+
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">2026.02 NEW BUILD / 残り3部屋</div>
@@ -1025,5 +1159,73 @@ a { color: inherit; text-decoration: none; }
   GLAN.SENDAI © 株式会社グッドリダンス
 </footer>
 
+<script>
+// Hero carousel
+(function() {
+  const carousel = document.getElementById('heroCarousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.hero-slide');
+  const dots = carousel.querySelectorAll('.hero-dot');
+  const prevBtn = carousel.querySelector('.hero-nav.prev');
+  const nextBtn = carousel.querySelector('.hero-nav.next');
+  const total = slides.length;
+
+  let current = 0;
+  let timer = null;
+  const INTERVAL = 5000;
+
+  function show(idx) {
+    current = (idx + total) % total;
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  function start() {
+    stop();
+    timer = setInterval(next, INTERVAL);
+  }
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  // Manual nav restarts the auto-advance timer
+  prevBtn.addEventListener('click', () => { prev(); start(); });
+  nextBtn.addEventListener('click', () => { next(); start(); });
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { show(i); start(); });
+  });
+
+  // Pause on hover (desktop)
+  carousel.addEventListener('mouseenter', stop);
+  carousel.addEventListener('mouseleave', start);
+
+  // Pause when page is hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop(); else start();
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stop();
+  }, { passive: true });
+  carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next(); else prev();
+    }
+    start();
+  }, { passive: true });
+
+  start();
+})();
+</script>
 </body>
 </html>
