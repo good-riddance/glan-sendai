@@ -8,17 +8,28 @@
 glan-sendai/
 ├── index.html       メインHTML(これだけで完結)
 ├── README.md        このファイル
+├── SETUP-GUIDE.md   GitHub Pages公開ガイド
 └── images/          画像置き場(差し替え用)
-    ├── exterior.jpg     外観(ヒーロー画像)
-    ├── room-01.jpg      居室1
-    ├── room-02.jpg      居室2
-    ├── kitchen.jpg      キッチン
-    ├── bathroom.jpg     バスルーム
-    ├── washroom.jpg     洗面
-    ├── entrance.jpg     エントランス
-    ├── floor-101.jpg    101号室間取り図
-    ├── floor-102.jpg    102号室間取り図
-    └── floor-103.jpg    103号室間取り図
+    ├── exterior.jpg         ヒーロー1枚目: 外観
+    ├── hero-living.jpg      ヒーロー2枚目: リビング
+    ├── hero-kitchen.jpg     ヒーロー3枚目: キッチン
+    ├── hero-bathroom.jpg    ヒーロー4枚目: バスルーム
+    ├── hero-entrance.jpg    ヒーロー5枚目: エントランス
+    ├── room-01.jpg          ギャラリー: 居室1
+    ├── room-02.jpg          ギャラリー: 居室2
+    ├── kitchen.jpg          ギャラリー: キッチン
+    ├── bathroom.jpg         ギャラリー: バスルーム
+    ├── washroom.jpg         ギャラリー: 洗面
+    ├── entrance.jpg         ギャラリー: エントランス
+    ├── floor-101.jpg        101号室間取り図
+    ├── floor-102.jpg        102号室間取り図
+    ├── floor-103.jpg        103号室間取り図
+    ├── floor-201.jpg        201号室間取り図
+    ├── floor-202.jpg        202号室間取り図
+    ├── floor-203.jpg        203号室間取り図
+    ├── floor-301.jpg        301号室間取り図
+    ├── floor-302.jpg        302号室間取り図
+    └── floor-303.jpg        303号室間取り図
 ```
 
 画像が無くても表示は崩れません(プレースホルダーで表示される)。`images/`フォルダに上記ファイル名でJPGを置けば自動的に差し替わります。
