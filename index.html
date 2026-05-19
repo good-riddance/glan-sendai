@@ -869,6 +869,51 @@ body.lightbox-active {
   background: var(--wood-700);
   color: var(--wood-100);
 }
+
+/* Campaign ribbon - 敷金・礼金・仲介手数料ゼロ訴求 */
+.room {
+  position: relative;
+  overflow: hidden;
+}
+.room-campaign {
+  position: absolute;
+  top: 14px;
+  right: -38px;
+  background: linear-gradient(135deg, var(--wood-700) 0%, #6E3F08 100%);
+  color: var(--wood-100);
+  padding: 5px 40px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  transform: rotate(35deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 4;
+  text-align: center;
+  line-height: 1.3;
+}
+.room-campaign-line1 {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+.room-campaign-line2 {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--paper);
+}
+@media (max-width: 540px) {
+  .room-campaign {
+    top: 10px;
+    right: -42px;
+    padding: 4px 42px;
+  }
+  .room-campaign-line1 { font-size: 7px; letter-spacing: 1px; }
+  .room-campaign-line2 { font-size: 10px; letter-spacing: 1px; }
+}
 .room-cta {
   background: var(--graphite-800);
   color: var(--paper);
@@ -1292,6 +1337,10 @@ body.lightbox-active {
         <div class="floor-label">1F<span class="floor-label-status floor-label-status-active">/ ご案内中</span></div>
 
         <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635001" target="_blank" rel="noopener">
+          <div class="room-campaign">
+            <span class="room-campaign-line1">期間限定</span>
+            <span class="room-campaign-line2">トリプル0</span>
+          </div>
           <div class="room-floor">
             <div class="img-placeholder" data-label="Room-101">
               <img src="./images/Room-101.jpg" alt="101号室間取り" onerror="this.style.display='none'">
@@ -1311,6 +1360,10 @@ body.lightbox-active {
         </a>
 
         <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635002" target="_blank" rel="noopener">
+          <div class="room-campaign">
+            <span class="room-campaign-line1">期間限定</span>
+            <span class="room-campaign-line2">トリプル0</span>
+          </div>
           <div class="room-floor">
             <div class="img-placeholder" data-label="Room-102">
               <img src="./images/Room-102.jpg" alt="102号室間取り" onerror="this.style.display='none'">
@@ -1329,6 +1382,10 @@ body.lightbox-active {
         </a>
 
         <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635003" target="_blank" rel="noopener">
+          <div class="room-campaign">
+            <span class="room-campaign-line1">期間限定</span>
+            <span class="room-campaign-line2">トリプル0</span>
+          </div>
           <div class="room-floor">
             <div class="img-placeholder" data-label="Room-103">
               <img src="./images/Room-103.jpg" alt="103号室間取り" onerror="this.style.display='none'">
