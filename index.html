@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
 <meta name="description" content="GLAN.SENDAI - 仙台駅徒歩13分、新築1LDKアパート。敷金・礼金・仲介手数料0円+フリーレント1ヶ月。グラファイトの外壁とウッド調の内装が映える、Urban Wood Residence。">
 <meta name="keywords" content="GLAN仙台,グラン仙台,仙台駅,新築,1LDK,賃貸,アパート,仙台市青葉区小田原,フリーレント,仲介手数料無料">
 
@@ -10,7 +12,7 @@
 <meta property="og:title" content="GLAN.SENDAI 〜Urban Wood Residence〜">
 <meta property="og:description" content="仙台駅徒歩13分。新築1LDK、敷金・礼金・仲介手数料0円+フリーレント1ヶ月。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="./images/exterior.jpg">
+<meta property="og:image" content="./images/HR-01.jpg">
 
 <title>GLAN.SENDAI 〜Urban Wood Residence〜 | 仙台駅徒歩13分の新築1LDK</title>
 
@@ -67,7 +69,7 @@
   --wood-100: #FAEEDA;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; color-scheme: light; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
@@ -106,42 +108,15 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
 }
 
-/* Header (sticky nav) */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--graphite-800);
-  color: var(--paper);
-  padding: 14px 22px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.brand-name {
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-.brand-sub {
-  font-size: 9px;
-  color: var(--graphite-300);
-  letter-spacing: 2px;
-  margin-top: 2px;
-}
-.header-cta {
-  font-size: 11px;
-  color: var(--graphite-300);
-}
-@media (max-width: 480px) {
-  .header-cta { display: none; }
-}
+/* Header removed - brand moved into hero overlay */
 
 /* Hero */
 .hero {
   position: relative;
-  height: min(70vh, 520px);
+  height: min(92vh, 820px);
+  min-height: 560px;
   overflow: hidden;
+  background: #1f1f1d;
 }
 .hero-carousel {
   position: absolute;
@@ -158,12 +133,11 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-  pointer-events: none;
+  transition: opacity 1.8s ease-in-out;
+  transform: scale(1.0);
 }
 .hero-slide.is-active {
   opacity: 1;
-  pointer-events: auto;
 }
 .hero-slide .img-placeholder {
   width: 100%;
@@ -175,69 +149,91 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
 }
 
-.hero-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(31, 31, 29, 0.4);
-  color: var(--paper);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
-  transition: background 0.2s;
-  backdrop-filter: blur(4px);
-}
-.hero-nav:hover {
-  background: rgba(31, 31, 29, 0.7);
-}
-.hero-nav.prev { left: 12px; }
-.hero-nav.next { right: 12px; }
-.hero-nav svg {
-  width: 22px;
-  height: 22px;
-}
+.hero .img-placeholder { width: 100%; height: 100%; }
 
-.hero-dots {
+/* Top brand: minimal, centered */
+.hero-brand {
   position: absolute;
-  bottom: 14px;
+  top: 36px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 4;
+  z-index: 3;
+  color: var(--paper);
+  pointer-events: none;
+  text-align: center;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
-.hero-dot {
-  width: 26px;
-  height: 3px;
-  background: rgba(253, 251, 247, 0.4);
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  border-radius: 2px;
-  transition: background 0.3s;
+.hero-brand-name {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 5px;
 }
-.hero-dot.is-active {
-  background: var(--paper);
+.hero-brand-sub {
+  font-size: 9px;
+  letter-spacing: 4px;
+  margin-top: 6px;
+  color: var(--graphite-200);
+  font-weight: 300;
 }
-
 @media (max-width: 480px) {
-  .hero-nav { width: 36px; height: 36px; }
-  .hero-nav.prev { left: 8px; }
-  .hero-nav.next { right: 8px; }
-  .hero-dot { width: 20px; }
+  .hero-brand { top: 28px; }
+  .hero-brand-name { font-size: 19px; letter-spacing: 4px; }
+  .hero-brand-sub { font-size: 8px; letter-spacing: 3px; }
 }
 
-.hero .img-placeholder { width: 100%; height: 100%; }
+/* Concept word: center of hero */
+.hero-concept {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  color: var(--paper);
+  pointer-events: none;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 720px;
+}
+.hero-concept-line {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--wood-200);
+  margin: 0 14px;
+  vertical-align: middle;
+}
+.hero-concept-tag {
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: var(--wood-200);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+.hero-concept-word {
+  font-size: clamp(22px, 3.6vw, 32px);
+  font-weight: 200;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.hero-concept-sub {
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--graphite-200);
+  font-weight: 300;
+}
+@media (max-width: 600px) {
+  .hero-concept-line { width: 24px; margin: 0 8px; }
+  .hero-concept-tag { font-size: 9px; letter-spacing: 4px; margin-bottom: 16px; }
+  .hero-concept-word { font-size: 19px; letter-spacing: 2px; }
+  .hero-concept-sub { font-size: 11px; letter-spacing: 2px; }
+}
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(44,44,42,0.15) 0%, rgba(44,44,42,0.75) 100%);
+  background:
+    linear-gradient(to bottom, rgba(31, 31, 29, 0.35) 0%, rgba(31, 31, 29, 0.15) 35%, rgba(31, 31, 29, 0.15) 65%, rgba(31, 31, 29, 0.65) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -246,37 +242,150 @@ a { color: inherit; text-decoration: none; }
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 36px 24px 50px;
+  padding: 32px 24px 42px;
   color: var(--paper);
   z-index: 3;
   pointer-events: none;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 .hero-badge {
   display: inline-block;
-  background: var(--wood-700);
-  color: var(--wood-100);
+  background: transparent;
+  color: var(--wood-200);
   font-size: 10px;
-  padding: 6px 14px;
-  border-radius: 2px;
-  margin-bottom: 16px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 14px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  border: none;
 }
 .hero-title {
-  font-size: clamp(24px, 5vw, 34px);
-  font-weight: 500;
-  margin-bottom: 10px;
-  line-height: 1.4;
-  letter-spacing: 0.5px;
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: 300;
+  margin-bottom: 8px;
+  line-height: 1.6;
+  letter-spacing: 3px;
 }
 .hero-subtitle {
-  font-size: 14px;
+  font-size: 11px;
+  margin: 0;
   color: var(--graphite-200);
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  line-height: 1.8;
 }
 
-/* Special offer panel */
-.offer {
+/* Property showcase - condo-style rich presentation */
+.property-showcase {
+  background:
+    linear-gradient(180deg, var(--graphite-900) 0%, var(--graphite-800) 100%);
+  color: var(--paper);
+  padding: 56px 22px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.property-showcase::before,
+.property-showcase::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: var(--wood-500);
+}
+.property-showcase::before { top: 28px; }
+.property-showcase::after { bottom: 24px; }
+
+.property-showcase-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.property-showcase-eyebrow {
+  font-size: 11px;
+  color: var(--wood-200);
+  letter-spacing: 6px;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+/* Main price */
+.property-prices {
+  margin-bottom: 36px;
+}
+.property-price-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--graphite-700);
+}
+.property-price-label {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--graphite-200);
+}
+.property-price-value {
+  display: inline-flex;
+  align-items: baseline;
+}
+.property-price-amount {
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--wood-200);
+  line-height: 1;
+  font-family: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+.property-price-unit {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--graphite-200);
+  margin-left: 6px;
+  letter-spacing: 2px;
+}
+
+/* Spec line: 全室角部屋 × 専有面積30㎡以上 */
+.property-spec-line {
+  font-size: clamp(15px, 2.6vw, 19px);
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--paper);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.property-spec-sep {
+  display: inline-block;
+  margin: 0 14px;
+  color: var(--wood-500);
+  font-weight: 300;
+}
+
+/* White CTA text - matches モデルルームご案内中 style */
+.property-cta-white {
+  font-size: clamp(24px, 4.5vw, 32px);
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: var(--paper);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+@media (max-width: 600px) {
+  .property-showcase { padding: 44px 18px 36px; }
+  .property-showcase-eyebrow { letter-spacing: 4px; margin-bottom: 22px; }
+  .property-price-row { gap: 10px; padding-bottom: 14px; }
+  .property-price-label { font-size: 14px; letter-spacing: 2px; }
+  .property-price-unit { font-size: 13px; letter-spacing: 1px; }
+  .property-spec-line { letter-spacing: 1px; margin-bottom: 22px; }
+  .property-spec-sep { margin: 0 8px; }
+  .property-cta-white { letter-spacing: 4px; }
+}
   background: var(--graphite-800);
   color: var(--paper);
   padding: 28px 22px;
@@ -307,9 +416,13 @@ a { color: inherit; text-decoration: none; }
   max-width: 480px;
   margin: 0 auto;
 }
+.offer-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 540px;
+}
 .offer-item {
   background: var(--graphite-700);
-  padding: 14px 4px;
+  padding: 14px 8px;
   border-radius: 4px;
   text-align: center;
 }
@@ -324,8 +437,21 @@ a { color: inherit; text-decoration: none; }
   color: var(--wood-200);
 }
 .offer-value-sub {
+  display: block;
   font-size: 11px;
-  margin-left: 1px;
+  margin-top: 2px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.offer-value-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--wood-200);
+  padding: 8px 0;
+}
+@media (max-width: 480px) {
+  .offer-grid-3 .offer-value { font-size: 18px; }
+  .offer-grid-3 .offer-value-text { font-size: 13px; }
 }
 
 /* Section base */
@@ -344,22 +470,78 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
   padding: 36px 22px;
 }
-.section-eyebrow {
-  font-size: 10px;
+
+/* Dark section variant - for ROOMS to emphasize available rooms */
+.section-dark {
+  background: var(--graphite-800);
+  border-top: 1px solid var(--graphite-700);
+  border-bottom: 1px solid var(--graphite-700);
+  max-width: none;
+  padding: 0;
+}
+.section-dark-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 44px 22px;
+}
+.section-dark .section-eyebrow {
+  color: var(--paper);
+}
+.section-dark .floor-label {
+  color: var(--graphite-200);
+}
+.section-dark .floor-label-status {
   color: var(--graphite-400);
-  letter-spacing: 2px;
+}
+.section-dark .floor-label-status-active {
+  color: var(--wood-200);
+  font-weight: 500;
+}
+.section-dark .floor-summary {
+  background: rgba(253, 251, 247, 0.04);
+  border-color: var(--graphite-700);
+  opacity: 0.7;
+}
+.section-dark .floor-summary-label {
+  color: var(--graphite-300);
+}
+.section-dark .floor-summary-text {
+  color: var(--graphite-200);
+}
+.section-dark .floor-summary-spec {
+  color: var(--graphite-400);
+}
+/* Available 1F rooms on dark background */
+.section-dark .room {
+  background: var(--paper);
+  border-color: var(--paper);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+.section-dark .room:hover {
+  border-color: var(--wood-500);
+}
+.section-eyebrow {
+  font-size: 22px;
+  color: var(--graphite-700);
+  letter-spacing: 5px;
   margin-bottom: 6px;
+  font-weight: 300;
 }
 .section-title {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   margin-bottom: 4px;
+  color: var(--graphite-400);
+  letter-spacing: 2px;
 }
 .section-subtitle {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--graphite-400);
   font-weight: 400;
   margin-left: 8px;
+}
+@media (max-width: 480px) {
+  .section-eyebrow { font-size: 18px; letter-spacing: 4px; }
 }
 
 /* Building stack (all 9 rooms grouped by floor) */
@@ -385,6 +567,50 @@ a { color: inherit; text-decoration: none; }
   color: var(--graphite-400);
   font-weight: 400;
   letter-spacing: 1px;
+}
+.floor-label-status-active {
+  color: var(--wood-700);
+  font-weight: 500;
+}
+
+/* Compact whole-floor summary (for fully occupied floors) */
+.floor-summary {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px;
+  background: #f0ede5;
+  border: 1px solid var(--graphite-200);
+  border-radius: 4px;
+  opacity: 0.88;
+}
+.floor-summary-label {
+  font-size: 13px;
+  color: var(--graphite-500);
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.floor-summary-text {
+  font-size: 13px;
+  color: var(--graphite-700);
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+.floor-summary-spec {
+  font-size: 11px;
+  color: var(--graphite-400);
+  letter-spacing: 1px;
+}
+@media (max-width: 480px) {
+  .floor-summary {
+    grid-template-columns: 40px 1fr auto;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .floor-summary-label { font-size: 11px; letter-spacing: 1px; }
+  .floor-summary-text { font-size: 12px; letter-spacing: 2px; }
+  .floor-summary-spec { font-size: 10px; }
 }
 .availability-summary {
   background: var(--paper);
@@ -422,6 +648,11 @@ a { color: inherit; text-decoration: none; }
 }
 .gallery .img-placeholder {
   aspect-ratio: 1/1;
+  cursor: zoom-in;
+  transition: opacity 0.2s;
+}
+.gallery .img-placeholder:hover {
+  opacity: 0.85;
 }
 .gallery-note {
   text-align: center;
@@ -431,6 +662,97 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 480px) {
   .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 14, 0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 60px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox.is-open {
+  display: flex;
+  opacity: 1;
+}
+.lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: rgba(31, 31, 29, 0.5);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+.lightbox-close {
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(31, 31, 29, 0.8);
+}
+.lightbox-close svg,
+.lightbox-prev svg,
+.lightbox-next svg {
+  width: 22px;
+  height: 22px;
+}
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--graphite-300);
+  font-size: 12px;
+  letter-spacing: 2px;
+  background: rgba(31, 31, 29, 0.5);
+  padding: 6px 14px;
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
+}
+@media (max-width: 600px) {
+  .lightbox { padding: 50px 12px; }
+  .lightbox-close { top: 12px; right: 12px; width: 38px; height: 38px; }
+  .lightbox-prev,
+  .lightbox-next { width: 38px; height: 38px; }
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
+}
+body.lightbox-active {
+  overflow: hidden;
 }
 
 /* Features */
@@ -741,125 +1063,123 @@ a { color: inherit; text-decoration: none; }
 </head>
 <body>
 
-<!-- Header -->
-<header class="header">
-  <div>
-    <div class="brand-name">GLAN.SENDAI</div>
-    <div class="brand-sub">URBAN WOOD RESIDENCE</div>
-  </div>
-  <div class="header-cta">仙台駅徒歩13分 / 1LDK</div>
-</header>
-
 <!-- Hero -->
 <section class="hero">
   <div class="hero-carousel" id="heroCarousel">
     <div class="hero-slides">
       <div class="hero-slide is-active">
-        <div class="img-placeholder" data-label="exterior.jpg">
-          <img src="./images/exterior.jpg" alt="GLAN.SENDAI 外観" onerror="this.style.display='none'">
+        <div class="img-placeholder" data-label="HR-01">
+          <img src="./images/HR-01.jpg" alt="GLAN.SENDAI 外観" onerror="this.style.display='none'">
         </div>
       </div>
       <div class="hero-slide">
-        <div class="img-placeholder" data-label="hero-living.jpg">
-          <img src="./images/hero-living.jpg" alt="リビング" onerror="this.style.display='none'">
+        <div class="img-placeholder" data-label="HR-02">
+          <img src="./images/HR-02.jpg" alt="リビング" onerror="this.style.display='none'">
         </div>
       </div>
       <div class="hero-slide">
-        <div class="img-placeholder" data-label="hero-kitchen.jpg">
-          <img src="./images/hero-kitchen.jpg" alt="キッチン" onerror="this.style.display='none'">
+        <div class="img-placeholder" data-label="HR-03">
+          <img src="./images/HR-03.jpg" alt="キッチン" onerror="this.style.display='none'">
         </div>
       </div>
-      <div class="hero-slide">
-        <div class="img-placeholder" data-label="hero-bathroom.jpg">
-          <img src="./images/hero-bathroom.jpg" alt="バスルーム" onerror="this.style.display='none'">
-        </div>
-      </div>
-      <div class="hero-slide">
-        <div class="img-placeholder" data-label="hero-entrance.jpg">
-          <img src="./images/hero-entrance.jpg" alt="エントランス" onerror="this.style.display='none'">
-        </div>
-      </div>
-    </div>
-
-    <button class="hero-nav prev" aria-label="前の画像">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-    </button>
-    <button class="hero-nav next" aria-label="次の画像">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-    </button>
-
-    <div class="hero-dots">
-      <button class="hero-dot is-active" aria-label="画像1"></button>
-      <button class="hero-dot" aria-label="画像2"></button>
-      <button class="hero-dot" aria-label="画像3"></button>
-      <button class="hero-dot" aria-label="画像4"></button>
-      <button class="hero-dot" aria-label="画像5"></button>
     </div>
   </div>
 
   <div class="hero-overlay"></div>
+
+  <div class="hero-brand">
+    <div class="hero-brand-name">GLAN.SENDAI</div>
+  </div>
+
+  <div class="hero-concept">
+    <div class="hero-concept-tag"><span class="hero-concept-line"></span>CONCEPT<span class="hero-concept-line"></span></div>
+    <div class="hero-concept-word">Urban Wood Residence</div>
+    <div class="hero-concept-sub">都市の静寂と、木のぬくもり。</div>
+  </div>
+
   <div class="hero-content">
-    <div class="hero-badge">2026.02 NEW BUILD / 残り3部屋</div>
-    <h1 class="hero-title">仙台駅まで、歩いて13分。</h1>
-    <p class="hero-subtitle">グラファイトの外壁とウッドの内装が出迎える、新生活</p>
+    <div class="hero-badge">2026.02 NEW BUILD ─ 1LDK</div>
+    <h1 class="hero-title">「仙台」駅 徒歩13分</h1>
+    <p class="hero-subtitle">街と暮らしの、ちょうどいい距離</p>
   </div>
 </section>
 
-<!-- Special offer -->
-<section class="offer">
-  <div class="offer-header">
-    <div class="offer-eyebrow">SPECIAL OFFER</div>
-    <div class="offer-headline">敷金・礼金・仲介手数料 すべて0円</div>
-    <div class="offer-tagline">+ 家賃1ヶ月分フリーレント</div>
-  </div>
-  <div class="offer-grid">
-    <div class="offer-item">
-      <div class="offer-label">敷金</div>
-      <div class="offer-value">0</div>
+<!-- Property highlights -->
+<section class="property-showcase">
+  <div class="property-showcase-inner">
+    <div class="property-showcase-eyebrow">─ PROPERTY ─</div>
+
+    <div class="property-prices">
+      <div class="property-price-row">
+        <div class="property-price-label">1LDK</div>
+        <div class="property-price-value"><span class="property-price-amount">73,000</span><span class="property-price-unit">円〜</span></div>
+      </div>
     </div>
-    <div class="offer-item">
-      <div class="offer-label">礼金</div>
-      <div class="offer-value">0</div>
+
+    <div class="property-spec-line">
+      <span>全室 角部屋</span>
+      <span class="property-spec-sep">×</span>
+      <span>専有面積 30㎡以上</span>
     </div>
-    <div class="offer-item">
-      <div class="offer-label">仲介料</div>
-      <div class="offer-value">0</div>
-    </div>
-    <div class="offer-item">
-      <div class="offer-label">フリーレント</div>
-      <div class="offer-value">1<span class="offer-value-sub">ヶ月</span></div>
-    </div>
+
+    <div class="property-cta-white">内見 ご案内中</div>
   </div>
 </section>
 
 <!-- Gallery -->
 <section class="section">
   <div class="section-eyebrow">GALLERY</div>
-  <h2 class="section-title">室内・共用部</h2>
-  <div class="section-body">
-    <div class="gallery">
-      <div class="img-placeholder" data-label="room-01.jpg">
-        <img src="./images/room-01.jpg" alt="居室" onerror="this.style.display='none'">
+  <div class="section-body" style="margin-top: 12px;">
+    <div class="gallery" id="gallery">
+      <div class="img-placeholder" data-label="GL-01" data-fullsize="./images/GL-01.jpg">
+        <img src="./images/GL-01.jpg" alt="GL-01" onerror="this.style.display='none'">
       </div>
-      <div class="img-placeholder" data-label="room-02.jpg">
-        <img src="./images/room-02.jpg" alt="居室" onerror="this.style.display='none'">
+      <div class="img-placeholder" data-label="GL-02" data-fullsize="./images/GL-02.jpg">
+        <img src="./images/GL-02.jpg" alt="GL-02" onerror="this.style.display='none'">
       </div>
-      <div class="img-placeholder" data-label="kitchen.jpg">
-        <img src="./images/kitchen.jpg" alt="キッチン" onerror="this.style.display='none'">
+      <div class="img-placeholder" data-label="GL-03" data-fullsize="./images/GL-03.jpg">
+        <img src="./images/GL-03.jpg" alt="GL-03" onerror="this.style.display='none'">
       </div>
-      <div class="img-placeholder" data-label="bathroom.jpg">
-        <img src="./images/bathroom.jpg" alt="バスルーム" onerror="this.style.display='none'">
+      <div class="img-placeholder" data-label="GL-04" data-fullsize="./images/GL-04.jpg">
+        <img src="./images/GL-04.jpg" alt="GL-04" onerror="this.style.display='none'">
       </div>
-      <div class="img-placeholder" data-label="washroom.jpg">
-        <img src="./images/washroom.jpg" alt="洗面" onerror="this.style.display='none'">
+      <div class="img-placeholder" data-label="GL-05" data-fullsize="./images/GL-05.jpg">
+        <img src="./images/GL-05.jpg" alt="GL-05" onerror="this.style.display='none'">
       </div>
-      <div class="img-placeholder" data-label="entrance.jpg">
-        <img src="./images/entrance.jpg" alt="エントランス" onerror="this.style.display='none'">
+      <div class="img-placeholder" data-label="GL-06" data-fullsize="./images/GL-06.jpg">
+        <img src="./images/GL-06.jpg" alt="GL-06" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-07" data-fullsize="./images/GL-07.jpg">
+        <img src="./images/GL-07.jpg" alt="GL-07" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-08" data-fullsize="./images/GL-08.jpg">
+        <img src="./images/GL-08.jpg" alt="GL-08" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-09" data-fullsize="./images/GL-09.jpg">
+        <img src="./images/GL-09.jpg" alt="GL-09" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-10" data-fullsize="./images/GL-10.jpg">
+        <img src="./images/GL-10.jpg" alt="GL-10" onerror="this.style.display='none'">
       </div>
     </div>
-    <p class="gallery-note">他の写真はエイブル物件ページにて</p>
+    <p class="gallery-note">画像をタップで拡大表示</p>
   </div>
 </section>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="画像拡大表示">
+  <img class="lightbox-image" id="lightboxImage" alt="">
+  <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+  </button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="前の画像">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+  </button>
+  <button class="lightbox-next" id="lightboxNext" aria-label="次の画像">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+  </button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
 
 <!-- Features -->
 <section class="section-tinted">
@@ -907,102 +1227,33 @@ a { color: inherit; text-decoration: none; }
 
 <!-- Available rooms -->
 <section class="section">
-  <div class="section-eyebrow">AVAILABLE ROOMS</div>
-  <h2 class="section-title">空室情報<span class="section-subtitle">全9部屋・1LDK</span></h2>
-  <div class="section-body">
+  <div class="section-eyebrow">ROOMS</div>
+  <div class="section-body" style="margin-top: 12px;">
 
     <div class="building">
 
       <!-- 3F -->
-      <div class="floor-group">
-        <div class="floor-label">3F<span class="floor-label-status">/ 全室申込済</span></div>
-
-        <div class="room is-taken">
-          <div class="room-floor">
-            <div class="img-placeholder" data-label="301">
-              <img src="./images/floor-301.jpg" alt="301号室間取り" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="room-info">
-            <div class="room-meta">ROOM 301 / 南西向き / 角部屋 / 1LDK 30.03㎡</div>
-          </div>
-          <div class="room-status-badge">申込済</div>
-        </div>
-
-        <div class="room is-taken">
-          <div class="room-floor">
-            <div class="img-placeholder" data-label="302">
-              <img src="./images/floor-302.jpg" alt="302号室間取り" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="room-info">
-            <div class="room-meta">ROOM 302 / 南向き / 角部屋 / 1LDK 30.00㎡</div>
-          </div>
-          <div class="room-status-badge">申込済</div>
-        </div>
-
-        <div class="room is-taken">
-          <div class="room-floor">
-            <div class="img-placeholder" data-label="303">
-              <img src="./images/floor-303.jpg" alt="303号室間取り" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="room-info">
-            <div class="room-meta">ROOM 303 / 南向き / 角部屋 / 1LDK 33.02㎡</div>
-          </div>
-          <div class="room-status-badge">申込済</div>
-        </div>
+      <div class="floor-summary">
+        <div class="floor-summary-label">3F</div>
+        <div class="floor-summary-text">全室申込済</div>
+        <div class="floor-summary-spec">1LDK × 3部屋</div>
       </div>
 
       <!-- 2F -->
-      <div class="floor-group">
-        <div class="floor-label">2F<span class="floor-label-status">/ 全室申込済</span></div>
-
-        <div class="room is-taken">
-          <div class="room-floor">
-            <div class="img-placeholder" data-label="201">
-              <img src="./images/floor-201.jpg" alt="201号室間取り" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="room-info">
-            <div class="room-meta">ROOM 201 / 南西向き / 角部屋 / 1LDK 30.03㎡</div>
-          </div>
-          <div class="room-status-badge">申込済</div>
-        </div>
-
-        <div class="room is-taken">
-          <div class="room-floor">
-            <div class="img-placeholder" data-label="202">
-              <img src="./images/floor-202.jpg" alt="202号室間取り" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="room-info">
-            <div class="room-meta">ROOM 202 / 南向き / 角部屋 / 1LDK 30.00㎡</div>
-          </div>
-          <div class="room-status-badge">申込済</div>
-        </div>
-
-        <div class="room is-taken">
-          <div class="room-floor">
-            <div class="img-placeholder" data-label="203">
-              <img src="./images/floor-203.jpg" alt="203号室間取り" onerror="this.style.display='none'">
-            </div>
-          </div>
-          <div class="room-info">
-            <div class="room-meta">ROOM 203 / 南向き / 角部屋 / 1LDK 33.02㎡</div>
-          </div>
-          <div class="room-status-badge">申込済</div>
-        </div>
+      <div class="floor-summary">
+        <div class="floor-summary-label">2F</div>
+        <div class="floor-summary-text">全室申込済</div>
+        <div class="floor-summary-spec">1LDK × 3部屋</div>
       </div>
 
       <!-- 1F -->
       <div class="floor-group">
-        <div class="floor-label">1F<span class="floor-label-status">/ 残り3部屋・募集中</span></div>
+        <div class="floor-label">1F<span class="floor-label-status floor-label-status-active">/ ご案内中</span></div>
 
         <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635001" target="_blank" rel="noopener">
           <div class="room-floor">
-            <div class="img-placeholder" data-label="floor-101">
-              <img src="./images/floor-101.jpg" alt="101号室間取り" onerror="this.style.display='none'">
+            <div class="img-placeholder" data-label="Room-101">
+              <img src="./images/Room-101.jpg" alt="101号室間取り" onerror="this.style.display='none'">
             </div>
           </div>
           <div class="room-info">
@@ -1020,8 +1271,8 @@ a { color: inherit; text-decoration: none; }
 
         <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635002" target="_blank" rel="noopener">
           <div class="room-floor">
-            <div class="img-placeholder" data-label="floor-102">
-              <img src="./images/floor-102.jpg" alt="102号室間取り" onerror="this.style.display='none'">
+            <div class="img-placeholder" data-label="Room-102">
+              <img src="./images/Room-102.jpg" alt="102号室間取り" onerror="this.style.display='none'">
             </div>
           </div>
           <div class="room-info">
@@ -1038,8 +1289,8 @@ a { color: inherit; text-decoration: none; }
 
         <a class="room" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635003" target="_blank" rel="noopener">
           <div class="room-floor">
-            <div class="img-placeholder" data-label="floor-103">
-              <img src="./images/floor-103.jpg" alt="103号室間取り" onerror="this.style.display='none'">
+            <div class="img-placeholder" data-label="Room-103">
+              <img src="./images/Room-103.jpg" alt="103号室間取り" onerror="this.style.display='none'">
             </div>
           </div>
           <div class="room-info">
@@ -1125,13 +1376,6 @@ a { color: inherit; text-decoration: none; }
           </span>
           <span class="surrounding-distance">747m</span>
         </div>
-        <div class="surrounding">
-          <span class="surrounding-label">
-            <svg class="surrounding-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.20-1.10-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>
-            朱華飯店
-          </span>
-          <span class="surrounding-distance">245m</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1160,71 +1404,116 @@ a { color: inherit; text-decoration: none; }
 </footer>
 
 <script>
-// Hero carousel
+// Hero auto cross-fade
 (function() {
   const carousel = document.getElementById('heroCarousel');
   if (!carousel) return;
 
   const slides = carousel.querySelectorAll('.hero-slide');
-  const dots = carousel.querySelectorAll('.hero-dot');
-  const prevBtn = carousel.querySelector('.hero-nav.prev');
-  const nextBtn = carousel.querySelector('.hero-nav.next');
   const total = slides.length;
+  if (total <= 1) return;
 
+  const INTERVAL = 5000;
   let current = 0;
   let timer = null;
-  const INTERVAL = 5000;
 
-  function show(idx) {
-    current = (idx + total) % total;
+  function next() {
+    current = (current + 1) % total;
     slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
-    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
   }
 
-  function next() { show(current + 1); }
-  function prev() { show(current - 1); }
+  function start() { stop(); timer = setInterval(next, INTERVAL); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
-  function start() {
-    stop();
-    timer = setInterval(next, INTERVAL);
-  }
-  function stop() {
-    if (timer) { clearInterval(timer); timer = null; }
-  }
-
-  // Manual nav restarts the auto-advance timer
-  prevBtn.addEventListener('click', () => { prev(); start(); });
-  nextBtn.addEventListener('click', () => { next(); start(); });
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { show(i); start(); });
-  });
-
-  // Pause on hover (desktop)
-  carousel.addEventListener('mouseenter', stop);
-  carousel.addEventListener('mouseleave', start);
-
-  // Pause when page is hidden
+  // Pause when tab hidden (saves resources)
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stop(); else start();
   });
 
-  // Touch swipe support
+  start();
+})();
+</script>
+<script>
+// Gallery lightbox
+(function() {
+  const gallery = document.getElementById('gallery');
+  const lightbox = document.getElementById('lightbox');
+  if (!gallery || !lightbox) return;
+
+  const lightboxImage = document.getElementById('lightboxImage');
+  const closeBtn = document.getElementById('lightboxClose');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+  const counter = document.getElementById('lightboxCounter');
+
+  // Collect only items whose actual image has loaded successfully
+  // (we still let users click, but filter on actual src list)
+  const items = Array.from(gallery.querySelectorAll('.img-placeholder[data-fullsize]'));
+  let current = 0;
+
+  function open(index) {
+    current = index;
+    update();
+    lightbox.classList.add('is-open');
+    document.body.classList.add('lightbox-active');
+  }
+
+  function close() {
+    lightbox.classList.remove('is-open');
+    document.body.classList.remove('lightbox-active');
+  }
+
+  function update() {
+    const item = items[current];
+    const src = item.getAttribute('data-fullsize');
+    const img = item.querySelector('img');
+    const alt = img ? img.getAttribute('alt') : '';
+    lightboxImage.src = src;
+    lightboxImage.alt = alt;
+    counter.textContent = (current + 1) + ' / ' + items.length;
+  }
+
+  function next() {
+    current = (current + 1) % items.length;
+    update();
+  }
+  function prev() {
+    current = (current - 1 + items.length) % items.length;
+    update();
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => open(i));
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+
+  // Click outside image to close
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') prev();
+    else if (e.key === 'ArrowRight') next();
+  });
+
+  // Touch swipe
   let touchStartX = 0;
-  let touchEndX = 0;
-  carousel.addEventListener('touchstart', (e) => {
+  lightbox.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
-    stop();
   }, { passive: true });
-  carousel.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
+  lightbox.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
     if (Math.abs(diff) > 50) {
       if (diff > 0) next(); else prev();
     }
-    start();
   }, { passive: true });
-
-  start();
 })();
 </script>
 </body>
