@@ -161,7 +161,9 @@ a { color: inherit; text-decoration: none; }
   color: var(--paper);
   pointer-events: none;
   text-align: center;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .hero-brand-name {
   font-size: 24px;
@@ -191,7 +193,9 @@ a { color: inherit; text-decoration: none; }
   color: var(--paper);
   pointer-events: none;
   text-align: center;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.8),
+    0 1px 4px rgba(0, 0, 0, 0.6);
   width: 90%;
   max-width: 720px;
 }
@@ -220,8 +224,11 @@ a { color: inherit; text-decoration: none; }
 .hero-concept-sub {
   font-size: 13px;
   letter-spacing: 4px;
-  color: var(--graphite-200);
+  color: var(--paper);
   font-weight: 300;
+  text-shadow:
+    0 0 8px rgba(0, 0, 0, 0.9),
+    0 1px 3px rgba(0, 0, 0, 0.8);
 }
 @media (max-width: 600px) {
   .hero-concept-line { width: 24px; margin: 0 8px; }
@@ -233,7 +240,8 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(31, 31, 29, 0.35) 0%, rgba(31, 31, 29, 0.15) 35%, rgba(31, 31, 29, 0.15) 65%, rgba(31, 31, 29, 0.65) 100%);
+    radial-gradient(ellipse 65% 35% at 50% 50%, rgba(31, 31, 29, 0.50) 0%, rgba(31, 31, 29, 0) 75%),
+    linear-gradient(to bottom, rgba(31, 31, 29, 0.60) 0%, rgba(31, 31, 29, 0.15) 25%, rgba(31, 31, 29, 0.15) 65%, rgba(31, 31, 29, 0.85) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -246,7 +254,9 @@ a { color: inherit; text-decoration: none; }
   color: var(--paper);
   z-index: 3;
   pointer-events: none;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 .hero-badge {
@@ -271,10 +281,13 @@ a { color: inherit; text-decoration: none; }
 .hero-subtitle {
   font-size: 11px;
   margin: 0;
-  color: var(--graphite-200);
+  color: var(--paper);
   letter-spacing: 2px;
   font-weight: 300;
   line-height: 1.8;
+  text-shadow:
+    0 0 8px rgba(0, 0, 0, 0.9),
+    0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* Property showcase - condo-style rich presentation */
@@ -643,7 +656,7 @@ a { color: inherit; text-decoration: none; }
 /* Gallery grid */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
 .gallery .img-placeholder {
@@ -1074,12 +1087,22 @@ body.lightbox-active {
       </div>
       <div class="hero-slide">
         <div class="img-placeholder" data-label="HR-02">
-          <img src="./images/HR-02.jpg" alt="リビング" onerror="this.style.display='none'">
+          <img src="./images/HR-02.jpg" alt="HR-02" onerror="this.style.display='none'">
         </div>
       </div>
       <div class="hero-slide">
         <div class="img-placeholder" data-label="HR-03">
-          <img src="./images/HR-03.jpg" alt="キッチン" onerror="this.style.display='none'">
+          <img src="./images/HR-03.jpg" alt="HR-03" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="img-placeholder" data-label="HR-04">
+          <img src="./images/HR-04.jpg" alt="HR-04" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="img-placeholder" data-label="HR-05">
+          <img src="./images/HR-05.jpg" alt="HR-05" onerror="this.style.display='none'">
         </div>
       </div>
     </div>
@@ -1098,7 +1121,7 @@ body.lightbox-active {
   </div>
 
   <div class="hero-content">
-    <div class="hero-badge">2026.02 NEW BUILD ─ 1LDK</div>
+    <div class="hero-badge">2026.03 NEW BUILD</div>
     <h1 class="hero-title">「仙台」駅 徒歩13分</h1>
     <p class="hero-subtitle">街と暮らしの、ちょうどいい距離</p>
   </div>
@@ -1160,6 +1183,24 @@ body.lightbox-active {
       </div>
       <div class="img-placeholder" data-label="GL-10" data-fullsize="./images/GL-10.jpg">
         <img src="./images/GL-10.jpg" alt="GL-10" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-11" data-fullsize="./images/GL-11.jpg">
+        <img src="./images/GL-11.jpg" alt="GL-11" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-12" data-fullsize="./images/GL-12.jpg">
+        <img src="./images/GL-12.jpg" alt="GL-12" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-13" data-fullsize="./images/GL-13.jpg">
+        <img src="./images/GL-13.jpg" alt="GL-13" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-14" data-fullsize="./images/GL-14.jpg">
+        <img src="./images/GL-14.jpg" alt="GL-14" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-15" data-fullsize="./images/GL-15.jpg">
+        <img src="./images/GL-15.jpg" alt="GL-15" onerror="this.style.display='none'">
+      </div>
+      <div class="img-placeholder" data-label="GL-16" data-fullsize="./images/GL-16.jpg">
+        <img src="./images/GL-16.jpg" alt="GL-16" onerror="this.style.display='none'">
       </div>
     </div>
     <p class="gallery-note">画像をタップで拡大表示</p>
