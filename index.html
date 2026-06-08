@@ -1003,6 +1003,25 @@ body.lightbox-active {
   background: var(--graphite-700);
 }
 
+/* Applied (申込済) room: disabled cta only, images stay normal */
+.room.is-applied {
+  position: relative;
+}
+.room.is-applied:hover {
+  border-color: var(--graphite-200);
+  transform: none;
+}
+.room-cta.is-disabled {
+  background: var(--graphite-300);
+  color: var(--paper);
+  cursor: default;
+  pointer-events: none;
+  letter-spacing: 1px;
+}
+.room-cta.is-disabled:hover {
+  background: var(--graphite-300);
+}
+
 @media (max-width: 540px) {
   .room-carousel-nav { width: 32px; height: 32px; }
   .room-carousel-nav.prev { left: 6px; }
@@ -1131,6 +1150,9 @@ body.lightbox-active {
 @media (max-width: 480px) {
   .surroundings { grid-template-columns: 1fr; }
 }
+
+/* Cinematic aerial route view: dawn illustration */
+
 
 /* Contact */
 .contact {
@@ -1435,7 +1457,7 @@ body.lightbox-active {
       <div class="floor-group">
         <div class="floor-label">1F</div>
 
-        <div class="room">
+        <div class="room is-applied">
           <div class="room-carousel" data-room-carousel>
             <div class="room-carousel-slides">
               <div class="room-carousel-slide is-active is-floorplan">
@@ -1491,7 +1513,7 @@ body.lightbox-active {
               <span class="room-feature-chip is-highlight">シューズインクローゼット</span>
             </div>
           </div>
-          <a class="room-cta" href="https://www.able.co.jp/detail/Detail.do?bk=000000624174635001" target="_blank" rel="noopener">エイブルで詳しく見る <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a>
+          <div class="room-cta is-disabled">お申込済み</div>
         </div>
 
         <div class="room">
